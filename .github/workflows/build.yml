@@ -126,6 +126,14 @@ jobs:
       - name: Apply patches and build
         run: ${{ steps.cmd.outputs.cmd }}
 
+      - name: Upload Meson logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: meson-logs
+          path: build/frida/build/meson-logs/
+          retention-days: 7
+          
       - name: List artifacts
         run: |
           echo "=== Build artifacts ==="
