@@ -103,6 +103,8 @@ def get_rollback_patches(name: str) -> list[tuple[str, str]]:
         (f"{name}-server.version", "frida-server.version"),
         (f"{name}-server.plist", "frida-server.plist"),
         (f"{name}-server.xcent", "frida-server.xcent"),
+
+        (f"have_shared_glib ? 'upstream' : '{name}'", "have_shared_glib ? 'upstream' : 'frida'"),
     ]
 
 
